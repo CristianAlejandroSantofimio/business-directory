@@ -1,2 +1,2 @@
 # directorioicw
-directorio de negocios
+Directorio de negocios independientes que proveen servicios
