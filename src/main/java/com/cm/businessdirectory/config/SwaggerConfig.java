@@ -11,8 +11,9 @@ class SwaggerConfig {
     @Bean
     OpenAPI icwDirectoryOpenApi() {
         return new OpenAPI()
-                .info((new Info().title("International Creative Woman Directory"))
-                        .description("Application for businesses' directory management")
+                .info((new Info()
+                        .title("Business Directory"))
+                        .description("Application for managing a business directory in International Creative Woman")
                         .version("1.0"));
     }
 

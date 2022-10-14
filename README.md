@@ -2,10 +2,8 @@
 
 ![Overview](diagrams/businessDirectoryArchticture.png)
 
-# Read Me First
-The following was discovered as part of building this project:
-
-* The original package name 'com.cm.business-directory' is invalid and this project uses 'com.cm.businessdirectory' instead.
+# For testing
+Spin the application and go in the browser to [Swagger](http://localhost:8080/swagger-ui/index.html)
 
 # Getting Started
 
