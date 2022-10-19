@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.Collections;
 
+import static java.util.Collections.emptyList;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class BusinessTest
@@ -15,7 +16,7 @@ class BusinessTest
         String name = "Partipan";
         String description = "Panaderia del barrio";
 
-        var business = new Business(name,description, Collections.emptyList());
+        var business = new Business(null, name,description, emptyList(), emptyList());
 
         //alternativa para llamar los gets.
         assertEquals(name, business.name());
