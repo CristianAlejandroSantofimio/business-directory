@@ -1,10 +1,10 @@
-/.project
-/.idea
+.project
+.idea
 *.iml
 *.iws
 *.ipr
 /.classpath
 .DS_Store
-/.gradle/
+.gradle
 **/build
-/build
+build
