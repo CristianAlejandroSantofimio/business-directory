@@ -53,5 +53,5 @@ public class BusinessController {
 
 
     }
-    //TODO metodo nuevo, anotation de GET, sin parametros, retorna una lista de negocios
+
 }

@@ -11,7 +11,7 @@ import java.util.UUID;
 public class DatabaseGateway implements BusinessGateway {
     @Override
     public Business create(Business businessToBeCreated) {
-        //TODO call database
+
 
         return new Business(
                 UUID.randomUUID().toString(),
@@ -27,6 +27,5 @@ public class DatabaseGateway implements BusinessGateway {
                         new Business("53454","tienda","miscelanea de remesa",null,null));
     }
 
-    //TODO retornar lista de negocios
-    //return List.of(new Business(), new Business())
+
 }
