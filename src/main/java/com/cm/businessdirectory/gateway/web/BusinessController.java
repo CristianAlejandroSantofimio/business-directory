@@ -1,7 +1,8 @@
 package com.cm.businessdirectory.gateway.web;
 
 import com.cm.businessdirectory.domain.Business;
-import com.cm.businessdirectory.gateway.BusinessGateway;
+import com.cm.businessdirectory.gateway.web.model.BusinessModelRequest;
+import com.cm.businessdirectory.gateway.web.model.BusinessModelResponse;
 import com.cm.businessdirectory.usecase.CreateBusiness;
 import com.cm.businessdirectory.usecase.GetBusiness;
 import io.swagger.v3.oas.annotations.Operation;
@@ -36,22 +37,41 @@ public class BusinessController {
             consumes = APPLICATION_JSON_VALUE)
     public ResponseEntity<BusinessModelResponse> createBusiness(
             @RequestBody @Valid final BusinessModelRequest createBusinessRequest) {
-        log.info("Creating business {}", createBusinessRequest);
+        log.info("Create business request received {}", createBusinessRequest);
 
-        var response = createBusiness.createBusiness(createBusinessRequest);
+        var businessForCreating = new Business(
+                null,
+                createBusinessRequest.name(),
+                createBusinessRequest.description(),
+                createBusinessRequest.socialMedia(),
+                createBusinessRequest.tags()
+        );
+
+        var createdBusiness = createBusiness.createBusiness(businessForCreating);
+
+        var response = new BusinessModelResponse(
+                createdBusiness.id(),
+                createdBusiness.name(),
+                createdBusiness.description(),
+                createdBusiness.socialMedia(),
+                createdBusiness.tags()
+        );
 
         return ResponseEntity
                 .status(HttpStatus.CREATED)
                 .body(response);
     }
 
-
+    @Operation(summary = "Get all registered businesses")
     @GetMapping(value = "/business")
     public List<BusinessModelResponse> getBusinesses() {
-
-        return getBusiness.getBusinesses();
-
-
+        var allBusinesses = getBusiness.getBusinesses();
+        return allBusinesses.stream().map(business -> new BusinessModelResponse(
+                business.id(),
+                business.name(),
+                business.description(),
+                business.socialMedia(),
+                business.tags())).toList();
     }
 
 }

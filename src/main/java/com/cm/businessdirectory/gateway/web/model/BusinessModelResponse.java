@@ -1,4 +1,4 @@
-package com.cm.businessdirectory.gateway.web;
+package com.cm.businessdirectory.gateway.web.model;
 
 import java.util.List;
 

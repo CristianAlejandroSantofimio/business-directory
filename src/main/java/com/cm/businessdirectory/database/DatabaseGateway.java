@@ -12,7 +12,6 @@ public class DatabaseGateway implements BusinessGateway {
     @Override
     public Business create(Business businessToBeCreated) {
 
-
         return new Business(
                 UUID.randomUUID().toString(),
                 businessToBeCreated.name(),
