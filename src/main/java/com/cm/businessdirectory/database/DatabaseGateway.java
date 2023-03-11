@@ -21,6 +21,12 @@ public class DatabaseGateway implements BusinessGateway {
                 businessToBeCreated.tags());
     }
 
+    @Override
+    public List<Business> getAll() {
+        return  List.of(new Business("145667"," dondeMa","fritos y algo mas",null,null),
+                        new Business("53454","tienda","miscelanea de remesa",null,null));
+    }
+
     //TODO retornar lista de negocios
     //return List.of(new Business(), new Business())
 }
